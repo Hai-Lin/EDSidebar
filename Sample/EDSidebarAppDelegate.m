@@ -41,6 +41,9 @@
 	// Setup sidebar with default cell (EDSideBarCell)
 	// Buttons top-aligned. Selection animated
 	[sideBarDefault setLayoutMode:ECSideBarLayoutTop];
+  sideBarDefault.backgroundColor = [NSColor whiteColor];
+	sideBarDefault.cellClass = [BlackCell class];
+
 	sideBarDefault.animateSelection =YES;
 	sideBarDefault.sidebarDelegate=self;
 	NSImage *selImage =[self buildSelectionImage];
@@ -49,6 +52,7 @@
 	[sideBarDefault addButtonWithTitle:@"Button 1" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
 	[sideBarDefault addButtonWithTitle:@"Button 2" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
 	[sideBarDefault addButtonWithTitle:@"Button 3" image:[NSImage imageNamed:@"icon1-white.png"] alternateImage:[NSImage imageNamed:@"icon1-gray.png"]];
+  [sideBarDefault addButtonWithTitle:@"title"];
 	[sideBarDefault selectButtonAtRow:2];
 	// Add a bit of noise texture
     sideBarDefault.noiseAlpha=0.04;
@@ -57,7 +61,7 @@
     
 	// Setup sidebar with blackCell (BlackCell)
 	// Buttons centered. Selection is not animated
-	sideBarBlack.backgroundColor = [NSColor blackColor];
+	sideBarBlack.backgroundColor = [NSColor whiteColor];
 	[sideBarBlack setLayoutMode:ECSideBarLayoutCenter];
 	sideBarBlack.animateSelection =NO;
 	sideBarBlack.sidebarDelegate=self;

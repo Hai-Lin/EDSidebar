@@ -58,8 +58,9 @@
 }
 
 - (void)drawWithFrame:(NSRect)frame inView:(NSView *)view {
-	
 	NSColor *cellColor = nil;
+  //[super setBordered:FALSE];
+  //[self setBordered:FALSE];
 	if( [self state] == NSOnState )
 		cellColor = [NSColor colorWithDeviceWhite:54.0/255.0 alpha:1.0];
 	else
@@ -67,6 +68,7 @@
 	
 	[cellColor setFill];
 	NSRectFill(frame);
+
 	[self drawBezelWithFrame:frame inView:view];
 	
 	// Hard coded positions, just for testing... Don't use this cell :-)
@@ -85,15 +87,13 @@
 		image = [self alternateImage]!=nil?[self alternateImage]:[self image];
 		[self setTextColor:[NSColor lightGrayColor]];
 	}
-	
 	[super drawImage:image withFrame:rectImage inView:view];
 	[super drawTitle:(NSAttributedString *)[self attributedTitle] withFrame:(NSRect)rectTitle inView:(NSView *)view];
 	
 }
 
 - (void)drawBezelWithFrame:(NSRect)frame inView:(NSView *)view {
-	
-	
+  NSLog(@"drawBazelWithFrame");
 	NSColor *cellColor = nil;
 	
 	if( [self state] == NSOnState )
@@ -413,7 +413,10 @@
 	[cell setTarget:self];
 	[cell setAction:@selector(buttonClicked:)];
 	[cell setFocusRingType:NSFocusRingTypeNone];
-	
+  //[cell setBordered:FALSE];
+  //if (cell.isBordered) {
+  //  NSLog(@"has bordered");
+  //}
 	[self resizeMatrix];
 	return cell;
 }

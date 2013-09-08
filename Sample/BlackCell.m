@@ -35,7 +35,7 @@
 #endif
 - (void)drawWithFrame:(NSRect)frame inView:(NSView *)view {
 	
-	[[NSColor blackColor] setFill];
+	[[NSColor whiteColor] setFill];
 	NSRectFill(frame);
 	NSImage *img = nil;
 		   
@@ -52,7 +52,7 @@
 	{
 		img = [self image];
 		// simulate outer glow using a shadow
-		[_shadow setShadowColor:[NSColor colorWithDeviceRed:115.0/225.0 green:215.0/225.0 blue:245.0/225.0 alpha:1.0] ];
+		[_shadow setShadowColor:[NSColor colorWithDeviceRed:224.0/225.0 green:224.0/225.0 blue:224.0/225.0 alpha:1.0] ];
 		[_shadow setShadowBlurRadius:5];
 		[_shadow setShadowOffset:NSMakeSize(0, 0)];	//[NSColor colorWithDeviceRed:0.0 green:0.0 blue:0.0 alpha:1.0];
 		[_shadow set];	
